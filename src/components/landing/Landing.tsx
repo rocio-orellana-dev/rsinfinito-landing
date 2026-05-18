@@ -32,11 +32,14 @@ import {
   CheckCircle2,
   CreditCard,
   Truck,
-  Coffee,
-  Frame,
   ShoppingBag,
 } from "lucide-react";
 import { CONTACT, waLink } from "@/lib/contact";
+import MugCustomizer3D from "./MugCustomizer3D";
+import BigBackgroundWord from "./BigBackgroundWord";
+import WaveDivider from "./WaveDivider";
+import FloatingStickers from "./FloatingStickers";
+import BrandUniverse from "./BrandUniverse";
 
 import logoRsinfinito from "@/assets/logo-rsinfinito.png";
 import infiTaza from "@/assets/infi-taza.png";
@@ -141,6 +144,13 @@ function FloatingDecor() {
         fill="currentColor"
         style={{ animationDelay: "0.9s" }}
       />
+      <Sparkles
+        className="absolute left-[30%] bottom-[30%] h-4 w-4 text-[var(--color-gold)]/60 animate-float"
+        style={{ animationDelay: "2.5s" }}
+      />
+      <div className="absolute right-[20%] top-[40%] rounded-full bg-[var(--color-cream)]/90 p-2 shadow-sm animate-float-slow backdrop-blur" style={{ animationDelay: "1.5s" }}>
+        <PenTool className="h-4 w-4 text-[var(--color-terracotta)]" />
+      </div>
     </>
   );
 }
@@ -218,57 +228,40 @@ function Header() {
 
 function Hero() {
   return (
-    <Section id="top" className="overflow-hidden pt-10 sm:pt-14 lg:pt-20">
-      {/* big background word — sutil pero visible */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-28 select-none text-center sm:top-32 lg:top-40"
-      >
-        <span
-          className="font-display text-[22vw] font-extrabold leading-none tracking-tighter sm:text-[20vw] lg:text-[16vw]"
-          style={{
-            backgroundImage:
-              "linear-gradient(180deg, oklch(0.66 0.13 38 / 0.18), oklch(0.66 0.13 38 / 0.04))",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
-        >
-          INFINITO
-        </span>
-      </div>
+    <Section id="top" className="relative overflow-hidden pt-10 sm:pt-14 lg:pt-20">
+      <BigBackgroundWord word="INFINITO" speed={-0.15} />
 
       {/* organic blobs — más profundidad */}
-      <div aria-hidden className="pointer-events-none absolute -left-40 top-0 h-[520px] w-[520px] rounded-full bg-[var(--color-rose)]/55 blur-3xl" />
-      <div aria-hidden className="pointer-events-none absolute -right-32 top-32 h-[460px] w-[460px] rounded-full bg-[var(--color-gold)]/30 blur-3xl" />
-      <div aria-hidden className="pointer-events-none absolute left-1/3 bottom-0 h-[360px] w-[360px] rounded-full bg-[var(--color-terracotta)]/20 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute -left-40 top-0 h-[600px] w-[600px] rounded-full bg-[var(--color-rose)]/30 blur-[100px] z-0" />
+      <div aria-hidden className="pointer-events-none absolute -right-32 top-32 h-[500px] w-[500px] rounded-full bg-[var(--color-gold)]/20 blur-[100px] z-0" />
+      <div aria-hidden className="pointer-events-none absolute left-1/3 bottom-0 h-[400px] w-[400px] rounded-full bg-[var(--color-terracotta)]/15 blur-[100px] z-0" />
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-24 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:gap-6 lg:px-8 lg:pb-36">
         <div className="relative z-10 text-center lg:text-left animate-fade-in-up">
-          <Eyebrow>Boutique de detalles · Hecho a pedido en Chile</Eyebrow>
+          <Eyebrow>Boutique de detalles · Creados a mano en Chile</Eyebrow>
           <h1 className="mt-5 text-balance font-display text-[2.5rem] font-semibold leading-[1.05] text-foreground sm:text-[3.5rem] lg:text-[5.2rem]">
             Detalles
             <br />
-            personalizados
+            únicos creados
             <br />
             <span className="italic text-[var(--color-terracotta)]">con amor</span>{" "}
             <InfinityIcon className="inline-block h-10 w-10 text-[var(--color-gold)] sm:h-16 sm:w-16" />
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-pretty text-lg font-medium text-foreground/80 sm:text-xl lg:mx-0">
-            Convertimos tus fotos, frases y recuerdos en regalos únicos que emocionan de verdad. Diseñados a mano, hechos a pedido, listos para regalar.
+            Transformamos tus momentos más especiales en regalos que tocan el corazón. Diseñados a mano, cuidando cada detalle y listos para sorprender.
           </p>
           <p className="mt-4 text-xs uppercase tracking-[0.22em] text-muted-foreground">
             Hecho a pedido · Diseños con significado · Atención personalizada
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:items-start lg:justify-start">
             <CTAWhatsapp message="Hola! Quiero cotizar un detalle personalizado de rsinfinito.cl">
-              Cotizar por WhatsApp
+              Hablemos de tu idea
             </CTAWhatsapp>
             <a
               href="#productos"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card/70 px-6 py-3 text-sm font-semibold text-foreground backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-card"
             >
-              Ver productos
+              Descubrir la colección
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -293,6 +286,7 @@ function Hero() {
           <div aria-hidden className="absolute inset-2 rounded-full bg-gradient-to-br from-[var(--color-rose)] via-[var(--color-cream)] to-[var(--color-gold)]/50 blur-2xl" />
           <div aria-hidden className="absolute inset-6 rounded-full border border-[var(--color-gold)]/50" />
           <div aria-hidden className="absolute inset-14 rounded-full border border-dashed border-[var(--color-terracotta)]/25" />
+          <div aria-hidden className="absolute -bottom-8 left-1/2 h-12 w-[60%] -translate-x-1/2 rounded-[100%] bg-black/15 blur-[20px]" />
           <img
             src={infiTaza}
             alt="Infi, la mascota de rsinfinito.cl, sosteniendo una taza personalizada"
@@ -301,21 +295,13 @@ function Hero() {
             className="relative z-10 h-full w-full scale-110 object-contain animate-float drop-shadow-[0_40px_50px_oklch(0.24_0.04_40/0.22)] sm:scale-105"
           />
           <FloatingDecor />
-
-          {/* sticker label flotante */}
-          <div className="absolute -left-2 top-10 z-20 hidden rotate-[-8deg] rounded-2xl border border-border bg-card px-3 py-2 text-xs font-semibold text-foreground shadow-[0_15px_30px_-15px_oklch(0.24_0.04_40/0.4)] sm:block">
-            <span className="flex items-center gap-1.5">
-              <Heart className="h-3.5 w-3.5 fill-[var(--color-terracotta)] text-[var(--color-terracotta)]" />
-              Hecho a pedido
-            </span>
-          </div>
-          <div className="absolute -right-2 bottom-12 z-20 hidden rotate-[6deg] rounded-2xl border border-border bg-card px-3 py-2 text-xs font-semibold text-foreground shadow-[0_15px_30px_-15px_oklch(0.24_0.04_40/0.4)] sm:block">
-            <span className="flex items-center gap-1.5">
-              <Sparkles className="h-3.5 w-3.5 text-[var(--color-gold)]" />
-              Diseño único
-            </span>
-          </div>
+          <FloatingStickers />
         </div>
+      </div>
+      
+      {/* Wave Divider at the bottom of Hero */}
+      <div className="absolute bottom-0 left-0 right-0 w-full z-0 opacity-40">
+        <WaveDivider color="var(--color-rose)" />
       </div>
     </Section>
   );
@@ -324,12 +310,51 @@ function Hero() {
 /* ---------------- trust strip ---------------- */
 
 const TRUST = [
-  { icon: HeartHandshake, label: "Hecho a pedido" },
-  { icon: Wand2, label: "Diseño revisado antes de producir" },
-  { icon: MessageCircle, label: "Atención personalizada" },
-  { icon: Gift, label: "Regalos con significado" },
-  { icon: PackageCheck, label: "Retiro o entrega coordinada" },
+  { icon: HeartHandshake, label: "Hechos a tu medida" },
+  { icon: Wand2, label: "Maqueta previa para tu tranquilidad" },
+  { icon: MessageCircle, label: "Asesoría cálida y cercana" },
+  { icon: Gift, label: "Regalos que cuentan historias" },
+  { icon: PackageCheck, label: "Envíos a todo Chile" },
 ];
+
+function ProductMarquee() {
+  const MARQUEE_ITEMS = [
+    "Tazas",
+    "Placas",
+    "Tote bags",
+    "Poleras",
+    "Puzzles",
+    "Regalos únicos",
+    "Detalles personalizados",
+    "Hecho con amor",
+  ];
+
+  return (
+    <div className="relative overflow-hidden border-b border-border/40 py-6 sm:py-8">
+      {/* gradientes laterales para suavizar entrada/salida */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent sm:w-32" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent sm:w-32" />
+      
+      <div className="flex w-max animate-marquee hover:[animation-play-state:paused] motion-reduce:animate-none">
+        {/* Renderizamos el track dos veces para el scroll infinito */}
+        {Array.from({ length: 2 }).map((_, k) => (
+          <div key={k} className="flex shrink-0 items-center justify-around">
+            {MARQUEE_ITEMS.map((item, i) => (
+              <span key={i} className="flex shrink-0 items-center px-6 sm:px-10">
+                <span className={`font-display text-3xl font-medium sm:text-4xl lg:text-5xl ${i % 2 === 0 ? "italic text-foreground/90" : "text-[var(--color-terracotta)]"}`}>
+                  {item}
+                </span>
+                <span className="ml-12 text-[var(--color-gold)] sm:ml-20">
+                  <InfinityIcon className="h-6 w-6 sm:h-8 sm:w-8" />
+                </span>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function TrustStrip() {
   return (
@@ -352,37 +377,37 @@ function TrustStrip() {
 
 const PRODUCTS = [
   {
-    name: "Taza blanca personalizada 11 oz",
+    name: "Taza Clásica Personalizada",
     price: "$4.500",
-    desc: "La clásica favorita. Tu foto, frase o diseño en cerámica brillante.",
+    desc: "Nuestra favorita. Tu foto, frase o ilustración plasmada en cerámica de alta calidad.",
     img: productMugWhite,
     tag: "Más pedida",
   },
   {
-    name: "Taza con interior de color",
+    name: "Taza Premium con Interior de Color",
     price: "$5.990",
-    desc: "Un detalle premium con interior intenso que destaca cada sorbo.",
+    desc: "Un toque vibrante. Interior y asa de color para hacer cada sorbo aún más especial.",
     img: productMugColor,
     tag: "Premium",
   },
   {
-    name: "Puzzle personalizado 120 piezas",
+    name: "Puzzle de Recuerdos (120 piezas)",
     price: "$8.990",
-    desc: "Convierte un recuerdo en una experiencia para armar juntos.",
+    desc: "Transforma esa foto inolvidable en una hermosa experiencia para armar en compañía.",
     img: productPuzzle,
     tag: "Para regalar",
   },
   {
-    name: "Placa aluminio 20×30 con imán",
+    name: "Placa Fotográfica Premium con Imán",
     price: "$8.990",
-    desc: "Sublimación full color con acabado premium y soporte magnético.",
+    desc: "Tu recuerdo favorito impreso en aluminio brillante. Ideal para decorar con elegancia.",
     img: productPlaque,
     tag: "Edición boutique",
   },
   {
-    name: "Llavero personalizado",
+    name: "Llaveros Personalizados",
     price: "$2.990",
-    desc: "El detalle perfecto para llevar siempre contigo.",
+    desc: "Un pedacito de tu historia para llevar siempre a todas partes contigo.",
     img: productLlavero,
     tag: "Personalizable",
   },
@@ -393,12 +418,12 @@ function Products() {
     <Section id="productos" className="py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <Eyebrow>Productos destacados</Eyebrow>
+          <Eyebrow>Colección destacada</Eyebrow>
           <h2 className="mt-4 text-balance font-display text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
-            Cada detalle cuenta <span className="italic text-[var(--color-terracotta)]">una historia</span>.
+            Cada detalle cuenta <span className="italic text-[var(--color-terracotta)]">tu historia</span>.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Selección curada de productos personalizables. Cada uno se diseña, revisa y produce especialmente para ti.
+            Explora nuestra selección boutique. Diseñamos, revisamos y creamos cada pieza con amor y dedicación, especialmente para ti.
           </p>
         </div>
 
@@ -406,7 +431,7 @@ function Products() {
           {PRODUCTS.map((p) => (
             <article
               key={p.name}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card transition-all duration-500 hover:-translate-y-2 hover:border-[var(--color-terracotta)]/40 hover:shadow-[0_40px_80px_-30px_oklch(0.24_0.04_40/0.35)]"
+              className="group relative overflow-hidden rounded-3xl border border-border bg-card hover-lift highlight-top"
             >
               <div className="relative aspect-[4/5] overflow-hidden bg-[var(--color-cream)]">
                 <img
@@ -477,9 +502,10 @@ function PersonalizeIdea() {
   return (
     <Section className="py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-border bg-gradient-to-br from-[var(--color-rose)]/40 via-[var(--color-cream)] to-[var(--color-gold)]/20 px-6 py-14 sm:px-12 lg:py-20">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-border bg-gradient-to-br from-[var(--color-rose)]/40 via-[var(--color-cream)] to-[var(--color-gold)]/20 px-6 py-14 sm:px-12 lg:py-20 shadow-[0_30px_60px_-15px_oklch(0.66_0.13_38/0.15)]">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
             <div className="relative order-2 mx-auto aspect-square w-full max-w-[440px] lg:order-1">
+              <div className="absolute inset-4 rounded-full border border-dashed border-[var(--color-gold)]/40 animate-spin" style={{ animationDuration: "40s" }} />
               <div className="absolute inset-8 rounded-full bg-[var(--color-cream)] shadow-[0_30px_60px_-30px_oklch(0.24_0.04_40/0.35)]" />
               <img
                 src={infiDisenando}
@@ -487,28 +513,30 @@ function PersonalizeIdea() {
                 width={1024}
                 height={1024}
                 loading="lazy"
-                className="relative h-full w-full object-contain animate-float"
+                className="relative h-full w-full object-contain animate-float drop-shadow-2xl"
               />
+              <Sparkles className="absolute right-8 top-12 h-6 w-6 text-[var(--color-gold)] animate-float-slow" />
+              <PenTool className="absolute left-10 bottom-12 h-5 w-5 text-[var(--color-terracotta)] animate-float" style={{ animationDelay: "1s" }} />
             </div>
             <div className="order-1 lg:order-2">
               <Eyebrow>Personaliza tu idea</Eyebrow>
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
-                Tu idea puede convertirse en un{" "}
-                <span className="italic text-[var(--color-terracotta)]">regalo único</span>.
+                Tu historia merece convertirse en un{" "}
+                <span className="italic text-[var(--color-terracotta)]">regalo inolvidable</span>.
               </h2>
               <p className="mt-5 max-w-xl text-pretty text-muted-foreground">
-                Envíanos una foto, frase, nombre, fecha especial o referencia, y te ayudamos a transformarla en un detalle personalizado con significado.
+                Comparte con nosotros esa foto especial, una frase, una fecha importante o simplemente tu idea. Nosotros nos encargaremos de darle vida con amor y dedicación.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <a
                   href="#cotizar"
                   className="inline-flex items-center gap-2 rounded-full bg-[var(--color-terracotta)] px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_10px_30px_-10px_oklch(0.66_0.13_38/0.6)] transition hover:-translate-y-0.5"
                 >
-                  Enviar mi idea
+                  Quiero crear mi diseño
                   <ArrowRight className="h-4 w-4" />
                 </a>
                 <CTAWhatsapp variant="ghost" message="Hola! Tengo una idea que quiero personalizar ✨">
-                  Hablar por WhatsApp
+                  Hablemos por WhatsApp
                 </CTAWhatsapp>
               </div>
             </div>
@@ -522,12 +550,12 @@ function PersonalizeIdea() {
 /* ---------------- how it works ---------------- */
 
 const STEPS = [
-  { t: "Elige tu producto", d: "Selecciona el detalle que quieres personalizar.", icon: MousePointerClick },
-  { t: "Envía tu idea", d: "Mándanos foto, frase, fecha o referencia visual.", icon: ImageIcon },
-  { t: "Preparamos tu diseño", d: "Trabajamos una maqueta cuidada y personalizada.", icon: PenTool },
-  { t: "Confirmas la maqueta", d: "Revisamos juntos hasta dejarla perfecta.", icon: CheckCircle2 },
-  { t: "Realizas el pago", d: "Te enviamos los medios disponibles.", icon: CreditCard },
-  { t: "Retiro o envío", d: "Coordinamos la entrega como te acomode.", icon: Truck },
+  { t: "Elige tu lienzo", d: "Explora nuestra colección y elige el detalle perfecto para personalizar.", icon: MousePointerClick },
+  { t: "Cuéntanos tu idea", d: "Envíanos esa foto especial, frase o simplemente lo que imaginas.", icon: ImageIcon },
+  { t: "Creamos la magia", d: "Diseñamos una propuesta digital cuidando cada aspecto visual.", icon: PenTool },
+  { t: "Apruebas tu diseño", d: "Revisamos el diseño juntos hasta asegurarnos de que lo ames.", icon: CheckCircle2 },
+  { t: "Confirmamos tu pedido", d: "Te enviaremos los datos para formalizar y comenzar la producción.", icon: CreditCard },
+  { t: "Llega a tus manos", d: "Coordinamos el envío o el retiro para que llegue en el momento perfecto.", icon: Truck },
 ];
 
 function HowItWorks() {
@@ -538,11 +566,11 @@ function HowItWorks() {
           <div>
             <Eyebrow>Cómo funciona</Eyebrow>
             <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
-              Un proceso simple,{" "}
-              <span className="italic text-[var(--color-terracotta)]">cuidado en cada paso</span>.
+              Un proceso pensado para ti,{" "}
+              <span className="italic text-[var(--color-terracotta)]">cuidado en cada detalle</span>.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Te acompañamos desde la primera idea hasta tener el detalle en tus manos.
+              Te guiamos con cariño desde tu primera idea hasta que el regalo llega a tus manos.
             </p>
             <div className="relative mt-10 mx-auto aspect-square w-full max-w-[200px] sm:max-w-xs">
               <img
@@ -558,10 +586,12 @@ function HowItWorks() {
 
           <div>
             <ol className="relative grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {/* Connector line desktop */}
+              <div aria-hidden className="absolute left-1/2 top-10 bottom-10 hidden w-px -translate-x-1/2 border-l-2 border-dashed border-border sm:block" />
               {STEPS.map((s, i) => (
                 <li
                   key={s.t}
-                  className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-[var(--color-terracotta)]/40 hover:shadow-lg"
+                  className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 hover-lift"
                 >
                   <span
                     aria-hidden
@@ -602,24 +632,40 @@ function HowItWorks() {
 const PURPOSE = [
   {
     icon: Heart,
-    title: "Impacto",
-    desc: "Creamos regalos que emocionan de verdad: detalles pensados para quedarse en la memoria.",
+    title: "Emoción pura",
+    desc: "Diseñamos regalos que trascienden. Detalles pensados para abrazar el alma y perdurar en el tiempo.",
   },
   {
     icon: Wand2,
-    title: "Innovación",
-    desc: "Personalización creativa y una experiencia simple, humana y cercana de principio a fin.",
+    title: "Dedicación",
+    desc: "Un proceso creativo, humano y cercano, diseñado para que disfrutes cada paso junto a nosotros.",
   },
   {
     icon: Leaf,
-    title: "Sostenibilidad",
-    desc: "Producción a pedido. Sin sobreproducción innecesaria. Cada pieza tiene un destino.",
+    title: "Conciencia",
+    desc: "Producimos a pedido. Cero sobreproducción. Cada creación nace porque tiene un dueño que la espera.",
   },
 ];
 
 function Purpose() {
   return (
     <Section className="relative overflow-hidden bg-[var(--color-deep)] py-24 sm:py-32 lg:py-44 text-[var(--color-cream)]">
+      {/* Sparkles / particles animated */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        {[
+          { l: '10%', d: '0s', dur: '18s', s: 16 },
+          { l: '30%', d: '4s', dur: '22s', s: 24 },
+          { l: '50%', d: '2s', dur: '16s', s: 14 },
+          { l: '70%', d: '7s', dur: '24s', s: 20 },
+          { l: '90%', d: '3s', dur: '19s', s: 18 },
+        ].map((pt, i) => (
+          <Sparkles
+            key={i}
+            className="absolute text-[var(--color-gold)]/20 animate-particle-up"
+            style={{ left: pt.l, bottom: '-20px', width: pt.s, animationDelay: pt.d, animationDuration: pt.dur }}
+          />
+        ))}
+      </div>
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
@@ -631,10 +677,10 @@ function Purpose() {
       {/* palabra de fondo */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 select-none text-center">
         <span
-          className="font-display text-[22vw] font-extrabold leading-none tracking-tighter sm:text-[18vw] lg:text-[14vw]"
+          className="font-display text-[26vw] font-extrabold leading-none tracking-tighter sm:text-[22vw] lg:text-[18vw]"
           style={{
             backgroundImage:
-              "linear-gradient(180deg, oklch(0.78 0.10 80 / 0.10), oklch(0.78 0.10 80 / 0.02))",
+              "linear-gradient(180deg, oklch(0.78 0.10 80 / 0.15), oklch(0.78 0.10 80 / 0.02))",
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
             color: "transparent",
@@ -654,10 +700,10 @@ function Purpose() {
           </div>
           <h2 className="mt-6 font-display text-4xl font-semibold leading-tight sm:text-6xl">
             Detrás de cada detalle hay{" "}
-            <span className="italic text-[var(--color-gold)]">una intención</span>.
+            <span className="italic text-[var(--color-gold)]">una emoción sincera</span>.
           </h2>
           <p className="mt-5 text-[var(--color-cream)]/75 sm:text-lg">
-            No fabricamos en masa. Diseñamos pensando en quien recibe el regalo.
+            Lejos de la producción en serie. Cada pieza nace pensando en la sonrisa de quien la recibe.
           </p>
         </div>
 
@@ -665,7 +711,7 @@ function Purpose() {
           {PURPOSE.map((p, i) => (
             <div
               key={p.title}
-              className="group relative overflow-hidden rounded-3xl border border-[var(--color-gold)]/15 bg-white/[0.035] p-6 sm:p-8 lg:p-10 backdrop-blur transition hover:-translate-y-1 hover:border-[var(--color-gold)]/50"
+              className="group relative overflow-hidden rounded-3xl glass-card p-6 sm:p-8 lg:p-10 hover-lift"
             >
               <span
                 aria-hidden
@@ -709,10 +755,10 @@ function GiftIdeas() {
         <div className="mx-auto max-w-2xl text-center">
           <Eyebrow>Ideas para regalar</Eyebrow>
           <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
-            Para esos momentos que <span className="italic text-[var(--color-terracotta)]">merecen</span>.
+            Para esos instantes que <span className="italic text-[var(--color-terracotta)]">merecen ser recordados</span>.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Inspírate con ocasiones para regalar algo único.
+            Descubre la inspiración perfecta para sorprender a quienes más amas.
           </p>
         </div>
         <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
@@ -722,11 +768,11 @@ function GiftIdeas() {
               href={waLink(`Hola! Busco un regalo para: ${i.t}`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-[var(--color-terracotta)]/40 hover:shadow-[0_25px_50px_-25px_oklch(0.24_0.04_40/0.25)]"
+              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 hover-lift"
             >
               <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-[var(--color-rose)]/0 to-[var(--color-gold)]/0 opacity-0 transition-opacity duration-500 group-hover:from-[var(--color-rose)]/30 group-hover:to-[var(--color-gold)]/15 group-hover:opacity-100" />
               <div className="relative">
-                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-[var(--color-rose)]/40 text-[var(--color-terracotta)] transition group-hover:scale-110 group-hover:bg-[var(--color-terracotta)] group-hover:text-primary-foreground">
+                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-[var(--color-rose)]/40 text-[var(--color-terracotta)] transition group-hover:scale-110 group-hover:bg-[var(--color-terracotta)] group-hover:text-primary-foreground group-hover:shadow-[0_0_15px_oklch(0.66_0.13_38/0.5)]">
                   <i.icon className="h-6 w-6" />
                 </span>
                 <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{i.t}</h3>
@@ -753,10 +799,10 @@ function InstagramGallery() {
           <div className="max-w-xl">
             <Eyebrow>Inspírate</Eyebrow>
             <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
-              Síguenos e <span className="italic text-[var(--color-terracotta)]">inspírate</span>.
+              Acompáñanos e <span className="italic text-[var(--color-terracotta)]">inspírate</span>.
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Descubre ideas reales en nuestra vitrina visual.
+              Explora nuestra comunidad y descubre las historias reales que hemos creado.
             </p>
           </div>
           <a
@@ -766,18 +812,18 @@ function InstagramGallery() {
             className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:-translate-y-0.5"
           >
             <Instagram className="h-4 w-4" />
-            Ver Instagram
+            Visitar nuestro Instagram
           </a>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:gap-6">
           {GALLERY.map((src, i) => (
             <a
               key={i}
               href={CONTACT.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-square overflow-hidden rounded-2xl bg-muted"
+              className={`group relative aspect-square overflow-hidden rounded-2xl bg-muted shadow-md transition-all duration-500 hover:z-10 hover:scale-105 hover:shadow-[0_20px_40px_-10px_oklch(0.24_0.04_40/0.3)] ${i % 2 === 0 ? '-rotate-2 hover:rotate-0' : 'rotate-2 hover:rotate-0'}`}
             >
               <img
                 src={src}
@@ -821,7 +867,7 @@ function Testimonials() {
           <div className="text-center lg:text-left">
             <Eyebrow>Testimonios reales</Eyebrow>
             <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-foreground sm:text-5xl lg:text-6xl">
-              Detalles que <span className="italic text-[var(--color-terracotta)]">emocionan</span> de verdad.
+              Historias reales, <span className="italic text-[var(--color-terracotta)]">emociones</span> que perduran.
             </h2>
             <div className="mt-6 flex items-center justify-center gap-3 lg:justify-start">
               <span className="flex">
@@ -833,21 +879,25 @@ function Testimonials() {
             </div>
             <div className="relative mx-auto mt-6 aspect-square w-full max-w-[260px] sm:max-w-[340px] lg:max-w-[420px] lg:mx-0">
               <div aria-hidden className="absolute inset-6 rounded-full bg-gradient-to-br from-[var(--color-rose)]/60 via-transparent to-[var(--color-gold)]/40 blur-2xl" />
+              <div aria-hidden className="absolute -bottom-4 left-1/2 h-8 w-[60%] -translate-x-1/2 rounded-[100%] bg-black/15 blur-[15px]" />
               <img
                 src={infiCelebrando}
                 alt="Infi celebrando con regalos y corazones"
                 width={1024}
                 height={1024}
                 loading="lazy"
-                className="relative h-full w-full object-contain animate-float drop-shadow-[0_30px_40px_oklch(0.24_0.04_40/0.2)]"
+                className="relative h-full w-full object-contain animate-float drop-shadow-[0_40px_50px_oklch(0.24_0.04_40/0.22)]"
               />
+              <Heart className="absolute left-[10%] top-[20%] h-6 w-6 text-[var(--color-rose)] animate-float" fill="currentColor" />
+              <Sparkles className="absolute right-[15%] top-[10%] h-5 w-5 text-[var(--color-gold)] animate-float-slow" />
+              <Gift className="absolute left-[80%] bottom-[20%] h-8 w-8 text-[var(--color-terracotta)]/80 animate-float" style={{ animationDelay: "1s" }} />
             </div>
           </div>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             {REVIEWS.map((r, i) => (
               <figure
                 key={r.name}
-                className={`relative rounded-3xl border border-border bg-card p-5 sm:p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-[0_30px_60px_-25px_oklch(0.24_0.04_40/0.25)] ${
+                className={`relative rounded-3xl border border-border bg-card p-5 sm:p-7 shadow-lg hover-lift highlight-top ${
                   i === 1 ? "sm:translate-y-8" : ""
                 }`}
               >
@@ -880,12 +930,12 @@ function Testimonials() {
 /* ---------------- FAQ ---------------- */
 
 const FAQS = [
-  { q: "¿Puedo enviar mi propia foto?", a: "¡Sí! Nos puedes enviar fotos, frases, nombres o referencias. Te recomendamos la mejor calidad posible para un resultado premium." },
-  { q: "¿Me muestran el diseño antes de producir?", a: "Siempre. Trabajamos una maqueta digital y solo producimos cuando tú la apruebas." },
-  { q: "¿Cuánto demora mi pedido?", a: "Depende del producto y la fecha. En promedio entre 3 y 7 días hábiles desde que apruebas el diseño." },
-  { q: "¿Hacen envíos?", a: "Sí. Coordinamos envíos a todo Chile y también puedes retirar en Coltauco/Rancagua." },
-  { q: "¿Qué medios de pago aceptan?", a: "Transferencia bancaria y otros medios acordados directamente por WhatsApp." },
-  { q: "¿Los productos personalizados tienen cambio?", a: "Por ser hechos a pedido no tienen cambio, pero garantizamos calidad y revisión previa del diseño." },
+  { q: "¿Puedo enviar mi propia foto?", a: "¡Por supuesto! Nos encanta trabajar con tus fotos, frases o ideas. Solo procura enviarnos la imagen en la mejor calidad posible para un resultado impecable." },
+  { q: "¿Me muestran el diseño antes de producir?", a: "Siempre. Nuestra prioridad es que ames el resultado. Te enviaremos una propuesta digital para que la revisemos juntos antes de fabricar." },
+  { q: "¿Cuánto demora mi pedido?", a: "Nos tomamos el tiempo necesario para hacerlo perfecto. En promedio, tardamos entre 3 y 7 días hábiles desde que apruebas el diseño final." },
+  { q: "¿Hacen envíos?", a: "¡Sí! Llevamos la emoción a todo Chile. También ofrecemos retiro en Coltauco y Rancagua si prefieres buscarlo en persona." },
+  { q: "¿Qué medios de pago aceptan?", a: "Aceptamos transferencia bancaria y otros medios que podemos acordar directamente por WhatsApp de forma segura." },
+  { q: "¿Los productos personalizados tienen cambio?", a: "Al ser creaciones únicas hechas a tu medida, no realizamos cambios. Sin embargo, te garantizamos que revisaremos la maqueta digital juntos hasta que estés 100% feliz." },
 ];
 
 function FAQ() {
@@ -896,7 +946,7 @@ function FAQ() {
         <div className="text-center">
           <Eyebrow>Preguntas frecuentes</Eyebrow>
           <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
-            Todo lo que necesitas <span className="italic text-[var(--color-terracotta)]">saber</span>.
+            Estamos aquí para <span className="italic text-[var(--color-terracotta)]">resolver tus dudas</span>.
           </h2>
         </div>
         <div className="mt-10 divide-y divide-border overflow-hidden rounded-3xl border border-border bg-card">
@@ -967,19 +1017,19 @@ function QuoteForm() {
   }
 
   const inputCls =
-    "w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition focus:border-[var(--color-terracotta)] focus:ring-2 focus:ring-[var(--color-terracotta)]/20";
+    "w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition focus:border-[var(--color-terracotta)] focus:ring-2 focus:ring-[var(--color-terracotta)]/20 focus:shadow-[0_0_15px_oklch(0.66_0.13_38/0.15)]";
 
   return (
     <Section id="cotizar" className="py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 rounded-[2.5rem] border border-border bg-card p-6 shadow-[0_30px_80px_-40px_oklch(0.24_0.04_40/0.3)] sm:p-10 lg:grid-cols-[1fr_1.4fr] lg:gap-12 lg:p-14">
+        <div className="grid grid-cols-1 gap-10 rounded-[2.5rem] border border-border bg-card p-6 shadow-[0_40px_100px_-20px_oklch(0.66_0.13_38/0.15)] sm:p-10 lg:grid-cols-[1fr_1.4fr] lg:gap-12 lg:p-14 highlight-top">
           <div>
             <Eyebrow>Cotización personalizada</Eyebrow>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-foreground sm:text-4xl">
-              Cuéntanos tu idea y te <span className="italic text-[var(--color-terracotta)]">respondemos</span>.
+              Cuéntanos qué imaginas y <span className="italic text-[var(--color-terracotta)]">hagámoslo realidad</span>.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Completa el formulario y al enviar abriremos WhatsApp con el resumen listo para que adjuntes tu foto de referencia.
+              Déjanos tus datos y la esencia de tu idea. Al enviar, continuaremos la charla por WhatsApp para afinar los detalles juntos y adjuntar tus fotos.
             </p>
             <div className="relative mx-auto mt-8 aspect-square w-full max-w-[200px] sm:max-w-[260px]">
               <img
@@ -1117,26 +1167,27 @@ function FinalCTA() {
           <div aria-hidden className="absolute inset-2 rounded-full bg-gradient-to-br from-[var(--color-rose)] via-[var(--color-cream)] to-[var(--color-gold)]/50 blur-2xl" />
           <div aria-hidden className="absolute inset-6 rounded-full bg-[var(--color-cream)] shadow-[0_40px_80px_-30px_oklch(0.24_0.04_40/0.4)]" />
           <div aria-hidden className="absolute inset-10 rounded-full border border-[var(--color-gold)]/40" />
-          <div aria-hidden className="absolute inset-16 rounded-full border border-dashed border-[var(--color-terracotta)]/25" />
+          <div aria-hidden className="absolute inset-16 rounded-full border border-dashed border-[var(--color-terracotta)]/25 animate-spin" style={{ animationDuration: "35s" }} />
+          <div aria-hidden className="absolute -bottom-8 left-1/2 h-12 w-[60%] -translate-x-1/2 rounded-[100%] bg-black/15 blur-[20px]" />
           <img
             src={infiRegalo}
             alt="Infi entregando un regalo personalizado"
             width={1024}
             height={1024}
             loading="lazy"
-            className="relative h-full w-full scale-105 object-contain animate-float drop-shadow-[0_40px_50px_oklch(0.24_0.04_40/0.25)]"
+            className="relative h-full w-full scale-105 object-contain animate-float drop-shadow-[0_40px_60px_oklch(0.24_0.04_40/0.3)]"
           />
           <FloatingDecor />
         </div>
         <div className="order-1 text-center lg:order-2 lg:text-left">
           <Eyebrow>Hagámoslo realidad</Eyebrow>
           <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-foreground sm:text-6xl">
-            ¿Tienes una idea especial?{" "}
-            <span className="italic text-[var(--color-terracotta)]">Hagámosla infinita</span>{" "}
+            ¿Tienes una idea en mente?{" "}
+            <span className="italic text-[var(--color-terracotta)]">Hagámosla eterna</span>{" "}
             <InfinityIcon className="inline h-10 w-10 text-[var(--color-gold)]" />
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-muted-foreground lg:mx-0">
-            Escríbenos y creemos juntas/os un detalle personalizado para ese momento que quieres recordar.
+            Escríbenos y diseñemos juntos un detalle lleno de amor para atesorar tus recuerdos más hermosos.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:justify-start">
             <CTAWhatsapp message="Hola! Quiero crear un detalle personalizado contigo">
@@ -1238,9 +1289,11 @@ export default function Landing() {
       <Header />
       <main className="pb-16 sm:pb-0">
         <Hero />
+        <ProductMarquee />
         <TrustStrip />
         <Products />
-        <PersonalizeIdea />
+        <MugCustomizer3D />
+        <BrandUniverse />
         <HowItWorks />
         <Purpose />
         <GiftIdeas />
